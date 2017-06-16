@@ -22,14 +22,15 @@ class Inventory extends React.Component {
     return (
       <div className="fish-edit" key={key}>
         <input type="text" name="name" value={fish.name} placeholder="Fish Name" onChange={(e)=>this.handleChange(e, key)}/>
-        <input type="text" name="price" value={fish.price} placeholder="Fish Price" />
-        <select type="text" name="status" value={fish.status} placeholder="Fish Status">
+        <input type="text" name="price" value={fish.price} placeholder="Fish Price" onChange={(e)=>this.handleChange(e, key)}/>
+        <select type="text" name="status" value={fish.status} placeholder="Fish Status" onChange={(e)=>this.handleChange(e, key)} >
           <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
         </select>
-        <textarea type="text" name="desc" value={fish.desc} placeholder="Fish Desc">
+        <textarea type="text" name="desc" value={fish.desc} placeholder="Fish Desc" onChange={(e)=>this.handleChange(e, key)}>
         </textarea>
-        <input type="text" name="image" value={fish.image} placeholder="Fish Image" />
+        <input type="text" name="image" value={fish.image} placeholder="Fish Image" onChange={(e)=>this.handleChange(e, key)} />
+        <button onClick={() => {this.props.removeFish(key)}}>Remove Fish</button>
       </div>
     )
   }
